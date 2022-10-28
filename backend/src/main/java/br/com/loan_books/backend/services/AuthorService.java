@@ -41,10 +41,10 @@ public class AuthorService implements DefaultCrud<Author> {
     }
 
     @Override
-    public Author update(Author obj) {
+    public void update(Author obj) {
         Author author = findById(obj.getId());
         BeanUtils.copyProperties(obj, author);
-        return repository.save(author);
+        repository.save(author);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class AuthorService implements DefaultCrud<Author> {
             repository.deleteById(id);
         } catch (Exception e) {
             throw new DataIntegrityViolationException(
-                    Author.class.getName() + "cannot be remover because it is linked to other entities");
+                    Author.class.getName() + "cannot be remove because it is linked to other entities");
         }
     }
 

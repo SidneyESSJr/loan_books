@@ -10,7 +10,7 @@ public interface DefaultCrud<T> {
 
     List<T> findAll();
 
-    T update(T obj);
+    void update(T obj);
 
     void delete(Long id);
 }
